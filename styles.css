@@ -1,0 +1,297 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('background3.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 130px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+}
+
+nav .logo {
+    font-size: 24px;
+    color: orangered;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: aliceblue;
+    padding: 10px 20px;
+}
+
+nav ul li input[type="search"],
+nav ul li input[type="submit"] {
+    border: 2px solid orangered;
+    background-color: transparent;
+    color: aliceblue;
+    padding: 5px 10px;
+}
+
+.span1 {
+    display: flex;
+}
+
+.btn1 {
+    background-color: orangered;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 150px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #575757;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* 
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav .hamburger {
+        display: block;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+} */
+
+.content {
+    /* text-align: center; */
+    padding: 10px;
+    margin-left: 30px;
+}
+
+.content h1 {}
+
+.content h1 span {
+    color: orangered;
+}
+
+.join-btn {
+    background-color: orangered;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+form {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    width: 300px;
+    margin: 0 50px;
+    border-radius: 10px;
+}
+
+form h3 {
+    background-color: #fff;
+    color: orangered;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid orangered;
+    background-color: black;
+    color: white;
+}
+
+form input[type="submit"] {
+    background-color: orangered;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form .social-links {
+    text-align: center;
+    margin-top: 10px;
+}
+
+form .social-links a {
+    color: white;
+    margin: 0 10px;
+}
+
+form p {
+    text-align: center;
+}
+
+form p a {
+    color: orangered;
+    text-decoration: none;
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 70%;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 1;
+    }
+
+    form {}
+
+    nav .hamburger {
+        display: block;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    main {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    form {
+        width: 70%;
+        margin: 20px 50px 20px 50px;
+    }
+}
+
+@media screen and (min-width:401px) and (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 34%;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        padding: 0;
+        background-color: rgba(16, 17, 70, 0.8);
+        z-index: 1;
+    }
+
+    nav .hamburger {
+        display: block;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    main {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    form {
+        width: 50%;
+        margin: 20px 170px 20px 170px;
+    }
+}
+
+
+
+@media screen and (min-width:769px) and (max-width: 1023px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav .hamburger {
+        display: block;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    main {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    form {
+        width: 80%;
+        margin: 20px 0;
+    }
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+input:valid {
+    border-color: green;
+}
