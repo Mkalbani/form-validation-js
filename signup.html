@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/cb3900160f.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Musa Khalid🌑</div>
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <ul id="nav-links">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">SERVICE</a>
+                <div class="dropdown-content">
+                    <a href="#">HTML CLASS</a>
+                    <a href="#">CSS CLASS</a>
+                    <a href="#">JAVASCRIPT CLASS</a>
+                </div>
+            </li>
+            <li><a href="#">DESIGN</a></li>
+            <li><a href="#">CONTACT</a></li>
+            <span class="span1">
+                <li><input type="search" value="Thanks For Watching"></li>
+                <li class="btn1"><input type="submit" value="Search"></li>
+            </span>
+        </ul>
+    </nav>
+<main style="display: flex; justify-content: center; margin-top: 10% ;">
+    <form id="signup-form">
+        <h3>Sign Up Here</h3>
+        <input type="text" id="signup-username" placeholder="Username">
+        <div class="error" id="signup-username-error"></div>
+        <input type="email" id="signup-email" placeholder="Email">
+        <div class="error" id="signup-email-error"></div>
+        <input type="password" id="signup-password1" placeholder="Password">
+        <div class="error" id="signup-password1-error"></div>
+        <input type="password" id="signup-password2" placeholder="Confirm Password">
+        <div class="error" id="signup-password2-error"></div>
+        <input type="submit" value="Sign Up">
+        <div class="social-links">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-google"></i></a>
+            <a href="#"><i class="fa fa-skype"></i></a>
+        </div>
+    </form>
+</main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+                const signupForm = document.getElementById('signup-form');
+
+                function validateForm(form) {
+                    let isValid = true;
+
+                    // Clear all previous error messages
+                    const errors = form.querySelectorAll('.error');
+                    errors.forEach(error => error.textContent = '');
+
+                    const inputs = form.querySelectorAll('input');
+
+                    inputs.forEach(input => {
+                        const errorElement = document.getElementById(`${input.id}-error`);
+                        let errorMessage = '';
+
+                        if (input.value.trim() === '') {
+                            errorMessage = 'This field is required.';
+                            input.style.borderColor = 'red';
+                            isValid = false;
+                        } else {
+                            input.style.borderColor = 'green';
+                        }
+
+                        if (input.id === 'signup-username' && input.value.trim().length < 5) {
+                            errorMessage = 'Username must be at least 5 characters long.';
+                            input.style.borderColor = 'red';
+                            isValid = false;
+                        }
+
+                        if (input.id === 'signup-email' && !/^\S+@\S+\.\S+$/.test(input.value)) {
+                            errorMessage = 'Invalid email address.';
+                            input.style.borderColor = 'red';
+                            isValid = false;
+                        }
+
+                        if (input.id === 'signup-password1' && input.value.length < 8) {
+                            errorMessage = 'Password must be at least 8 characters long.';
+                            input.style.borderColor = 'red';
+                            isValid = false;
+                        }
+
+                        if (input.id === 'signup-password2') {
+                            const password1 = document.getElementById('signup-password1').value;
+                            if (password1 !== input.value) {
+                                errorMessage = 'Passwords do not match.';
+                                input.style.borderColor = 'red';
+                                isValid = false;
+                            }
+                        }
+
+                        errorElement.textContent = errorMessage;
+                    });
+
+                    if (isValid) {
+                        console.log('Form submitted successfully!');
+                        // Perform form submission logic here (e.g., send data to server)
+                    }
+                }
+
+                signupForm.addEventListener('submit', function (event) {
+                    event.preventDefault(); // Prevent default form submission
+                    validateForm(signupForm);
+                });
+            });
+</script>
+</body>
+
+</html>
